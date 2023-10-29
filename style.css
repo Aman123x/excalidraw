@@ -1,29 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 *{
-    font-family: 'Roboto', sans-serif;
-}
-
-body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
-    overflow: hidden;
 }
 
-.nav{
+#root{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* #canvas{
+    
+} */
+
+#top{
+    position: absolute;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    z-index: 10;
     padding: 10px;
 }
 
-/* canvas {
+#top>.options{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    border-radius: 10px;
+    padding: 4px 20px;
+    box-shadow: 2px 2px 6px #e1e1e1;
+    cursor: auto;
+}
+
+.menu{
+    background-color: #ececf3;
+}
+
+.btn{
+    border: none;
+    padding: 4px 6px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 18px !important;
+}
+
+.btn:hover{
+    background-color: #9090c7;
+    border-radius: 4px;
+}
+
+.active{
+    background-color: #3a34eb;
+    border-radius: 4px;
+    color: white;
+}
+
+#bottom{
     position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 50px);
-    background-color: white;
-    display: block;
-} */
+    z-index: 100;
+    left: 20px;
+    bottom: 20px;
+}
+
+#bottom>.options{
+    background-color: #d1d1f2;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+
+ .form{
+    position: fixed;
+    left: 30px;
+    top: 30vh;
+    border: 1px solid #ededed;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+ }
+
+ .hide{
+    display: none;
+ }

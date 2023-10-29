@@ -3,47 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excalidraw</title>
+    <title>Drawing Board</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />  
 </head>
 <body>
-    <nav>
-        <div class="nav">
-            <div class="nav-left">
-                <button>
-                    <i class="fa-solid fa-bars" style="color: #c0cade;"></i>
+    <div id="root">
+        <div id="top">
+            <button class="material-icons menu btn" onclick="toggleMenu()">menu</button>
+            <div class="options" id="actionbuttons">
+                <button class="btn material-icons"  id="freehand" onclick="onActionClick(this)">edit</button>
+                <button id="circle" class="btn material-symbols-outlined" onclick="onActionClick(this)">brightness_1</button>
+                <button id="rectangle" class="btn material-symbols-outlined" onclick="onActionClick(this)">check_box_outline_blank</button>
+                <button class="btn material-symbols-outlined" id="line" onclick="onActionClick(this)">
+                    pen_size_2
                 </button>
+                <button id="eraser" class="btn material-symbols-outlined" onclick="onActionClick(this)">ink_eraser</button>
+                <!-- <input type="color" id="colorPicker"> -->
             </div>
-            <div class="nav-middle">
-                <button><i class="fa-solid fa-lock" style="color: #9da5b4;"></i></button>
-                <button><i class="fa-regular fa-hand" style="color: #586884;"></i></button>
-                <button><i class="fa-solid fa-arrow-pointer" style="color: #8e98a9;"></i></button>
-                <button><i class="fa-regular fa-square" style="color: #768398;"></i></button>
-                <button><i class="fa-solid fa-diamond" style="color: #8995a9;"></i></button>
-                <button><i class="fa-regular fa-circle" style="color: #9299a5;"></i></button>
-                <button><i class="fa-solid fa-arrow-right" style="color: #9da5b4;"></i></button>
-                <button><i class="fa-solid fa-grip-lines" style="color: #919db1;"></i></button>
-                <button><i class="fa-solid fa-pencil" style="color: #8192b1;"></i></button>
-                <button><i class="fa-solid fa-a" style="color: #8793a6;"></i></button>
-                <button><i class="fa-regular fa-image" style="color: #98a4b9;"></i></button>
-                <button><i class="fa-solid fa-eraser" style="color: #8590a3;"></i></button>
-                <button><i class="fa-solid fa-toolbox" style="color: #99a4b8;"></i></button>
-            </div>
-            <div class="nav-right">
-                <button><i class="fa-solid fa-user-group" style="color: #99a1ad;"></i></button>
-                <button><i class="fa-solid fa-book-open" style="color: #a4adbc;"></i> Library</button>
+            <div class="color">
+                <form>
+
+                </form>
             </div>
         </div>
-    </nav>
-    <main>
-        <button id="clearCanvas">Clear Canvas</button>
-    <button id="undo">Undo</button>
-    <button id="redo">Redo</button>
-    <canvas id="drawingCanvas" width="1500" height="600"></canvas>
-    </main>
+        <canvas id="canvas"></canvas>
+        <div id="bottom">
+            <div class="options">
+                <button class="btn material-icons" id="undo">undo</button>
+                <button class="btn material-icons" id="redo">redo</button>
+                <button class="btn material-icons" id="clear">clear</button>
+            </div>
+        </div>
+    </div>
+    <div class="form hide">
+        <label for="strokewidth" >Stroke Width</label>
+        <input type="range" id="strokewidth" name="strokewidth" min="3" max="10" oninput="onInput(this)">
+        <label for="strokestyle">Stroke Color</label>
+        <input type="color" name="strokestyle" id="strokestyle" oninput="onInput(this)">
+    </div>
 
 
-    <script src="script.js"></script>
+    <script src="./function.js"></script>
+    <script src="./shape.js"></script>
 </body>
 </html>
